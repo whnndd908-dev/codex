@@ -1,0 +1,1 @@
+当前容器未挂载可用的 NVIDIA GPU。请挂载 GPU 后重试；此启动入口按用户要求使用 CUDA 检测。排期可独立运行：pipeline.run_all --stages 1。

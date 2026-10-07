@@ -1,0 +1,104 @@
+........................................................................ [  5%]
+........................................................................ [ 11%]
+.............................................................F.......... [ 17%]
+....sss................................................................. [ 22%]
+...s....s...s.............s............................................. [ 28%]
+........................................................................ [ 34%]
+...............................................s........................ [ 39%]
+........................................................................ [ 45%]
+...........................................FFFF......................... [ 51%]
+...........F................ss.......................................... [ 56%]
+........................................................................ [ 62%]
+........................................................................ [ 68%]
+...............................s........................................ [ 73%]
+........................................................................ [ 79%]
+........................................................................ [ 85%]
+........................................................................ [ 90%]
+............................................................F........... [ 96%]
+............................................                             [100%]
+=================================== FAILURES ===================================
+_______________ test_input_files_exist_and_are_readonly_targets ________________
+tests/test_config.py:6: in test_input_files_exist_and_are_readonly_targets
+    assert config.VIDEO.exists(), "视频文件不在预期位置"
+E   AssertionError: 视频文件不在预期位置
+E   assert False
+E    +  where False = exists()
+E    +    where exists = PosixPath('/workspace/video-analysis/data/城市精细化管理1组4月27日视频.mp4').exists
+E    +      where PosixPath('/workspace/video-analysis/data/城市精细化管理1组4月27日视频.mp4') = config.VIDEO
+___________________ test_probe_duration_matches_known_video ____________________
+tests/test_frames.py:33: in test_probe_duration_matches_known_video
+    d = probe_duration(config.VIDEO)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pipeline/frames.py:79: in probe_duration
+    raise RuntimeError(f"probe_duration: 无法读取视频时长（视频流与容器时长均缺失）：{video}")
+E   RuntimeError: probe_duration: 无法读取视频时长（视频流与容器时长均缺失）：/workspace/video-analysis/data/城市精细化管理1组4月27日视频.mp4
+----------------------------- Captured stdout call -----------------------------
+⚠ probe_duration: 视频流时长缺失，回退到容器时长 format=duration（/workspace/video-analysis/data/城市精细化管理1组4月27日视频.mp4）
+_____________ test_extract_window_writes_expected_number_of_frames _____________
+tests/test_frames.py:42: in test_extract_window_writes_expected_number_of_frames
+    refs = extract_window(config.VIDEO, w, tmp_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pipeline/frames.py:374: in extract_window
+    raise RuntimeError(
+E   RuntimeError: 抽帧失败率过高：11/11 (100.0%) 超过阈值 5%，疑似系统性问题（路径/编码/权限），中止 order=1 kind=entry
+----------------------------- Captured stdout call -----------------------------
+⚠ 抽帧失败 11/11 帧（已跳过）：1400.000, 1400.200, 1400.400, 1400.600, 1400.800 ...
+__________________ test_extracted_frames_are_full_resolution ___________________
+tests/test_frames.py:52: in test_extracted_frames_are_full_resolution
+    refs = extract_window(config.VIDEO, w, tmp_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pipeline/frames.py:374: in extract_window
+    raise RuntimeError(
+E   RuntimeError: 抽帧失败率过高：1/1 (100.0%) 超过阈值 5%，疑似系统性问题（路径/编码/权限），中止 order=1 kind=seated
+----------------------------- Captured stdout call -----------------------------
+⚠ 抽帧失败 1/1 帧（已跳过）：1400.000
+______________________ test_extract_window_is_idempotent _______________________
+tests/test_frames.py:59: in test_extract_window_is_idempotent
+    first = extract_window(config.VIDEO, w, tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pipeline/frames.py:374: in extract_window
+    raise RuntimeError(
+E   RuntimeError: 抽帧失败率过高：3/3 (100.0%) 超过阈值 5%，疑似系统性问题（路径/编码/权限），中止 order=1 kind=entry
+----------------------------- Captured stdout call -----------------------------
+⚠ 抽帧失败 3/3 帧（已跳过）：1400.000, 1400.200, 1400.400
+_________________ test_ffmpeg_default_stays_on_the_local_path __________________
+tests/test_frames.py:854: in test_ffmpeg_default_stays_on_the_local_path
+    assert reloaded.FFMPEG == "/opt/homebrew/bin/ffmpeg"
+E   AssertionError: assert '/usr/bin/ffmpeg' == '/opt/homebrew/bin/ffmpeg'
+E     
+E     - /opt/homebrew/bin/ffmpeg
+E     + /usr/bin/ffmpeg
+_______________ test_clip_embedding_on_real_crops_is_normalized ________________
+tests/test_staff.py:156: in test_clip_embedding_on_real_crops_is_normalized
+    assert len(frame_files) >= 2, "需要至少两张真实帧才能跑这条 slow 测试"
+E   AssertionError: 需要至少两张真实帧才能跑这条 slow 测试
+E   assert 0 >= 2
+E    +  where 0 = len([])
+=============================== warnings summary ===============================
+tests/test_assemble.py::test_measure_person_color_returns_all_required_fields
+tests/test_assemble.py::test_measure_person_color_caps_frame_count
+tests/test_assemble.py::test_vlm_failure_marks_dual_track_as_disagreeing
+  /workspace/video-analysis/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py:417: UserWarning: The following named arguments are not valid for `SegformerImageProcessor.__init__` and were ignored: 'reduce_labels'
+    image_processor = cls(**image_processor_dict)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_detect.py:73: 该断言依赖某一组特有的 pilot 抽帧产物；换视频组后不存在，跳过而非硬失败
+SKIPPED [1] tests/test_detect.py:83: 该断言依赖某一组特有的 pilot 抽帧产物；换视频组后不存在，跳过而非硬失败
+SKIPPED [1] tests/test_detect.py:99: 该断言依赖某一组特有的 pilot 抽帧产物；换视频组后不存在，跳过而非硬失败
+SKIPPED [1] tests/test_entryexit.py:1540: 跳过原因：用户真实标注端到端验证需要 work/文化4-4.28/ 下的真实产物，当前缺少 ['/workspace/video-analysis/work/文化4-4.28/segments.json', '/workspace/video-analysis/work/文化4-4.28/detections.json', '/workspace/video-analysis/work/文化4-4.28/seats.json', '/workspace/video-analysis/work/Output/文化4-4.28/entry_labels_文化4-4月28日视频.json']——这条测试**没有验证过任何东西**，不要把它算作通过。要跑它请先备齐这些文件（阶段 2/3/4 的产物 + 挑选页导出的 entry_labels_*.json）。
+SKIPPED [1] tests/test_entryexit.py:1734: 跳过原因：本条要用 work/文化4-4.28/ 下用户真实标注的 entry_labels_文化4-4月28日视频.json 与 detections.json/segments.json 反查每个被标为创业者的候选的框高占比，当前文件不齐——这条测试**没有验证过任何东西**，不要把它算作通过。
+SKIPPED [1] tests/test_entryexit.py:1914: 跳过原因：本条端到端要读 work/文化4-4.28/ 下的真实产物，当前缺少 ['/workspace/video-analysis/work/文化4-4.28/segments.json', '/workspace/video-analysis/work/文化4-4.28/detections.json', '/workspace/video-analysis/work/文化4-4.28/seats.json', '/workspace/video-analysis/work/Output/文化4-4.28/entry_labels_文化4-4月28日视频.json']——这条测试**没有验证过任何东西**，不要把它算作通过。
+SKIPPED [1] tests/test_entryexit.py:2357: 跳过原因：跨段流转的端到端验证需要 work/城市2-4.26/ 下的真实产物，当前缺少 ['/workspace/video-analysis/work/城市2-4.26/segments.json', '/workspace/video-analysis/work/城市2-4.26/detections.json', '/workspace/video-analysis/work/城市2-4.26/seats.json', '/workspace/video-analysis/work/Output/城市2-4.26/entry_labels_城市2-4.26.json']——这条测试**没有验证过任何东西**，不要把它算作通过。
+SKIPPED [1] tests/test_entryreview.py:2724: 缺少用户的真实标注/产物 work/Output/城市2-4.26/entry_labels_城市2-4.26.json（该组的 work 目录不在本机）
+SKIPPED [1] tests/test_frames.py:1293: 本机没有这组视频
+SKIPPED [1] tests/test_frames.py:1324: 本机没有这组视频
+SKIPPED [1] tests/test_parsing.py:77: 该断言依赖某一组特有的 pilot 抽帧产物；换视频组后不存在，跳过而非硬失败
+FAILED tests/test_config.py::test_input_files_exist_and_are_readonly_targets
+FAILED tests/test_frames.py::test_probe_duration_matches_known_video - Runtim...
+FAILED tests/test_frames.py::test_extract_window_writes_expected_number_of_frames
+FAILED tests/test_frames.py::test_extracted_frames_are_full_resolution - Runt...
+FAILED tests/test_frames.py::test_extract_window_is_idempotent - RuntimeError...
+FAILED tests/test_frames.py::test_ffmpeg_default_stays_on_the_local_path - As...
+FAILED tests/test_staff.py::test_clip_embedding_on_real_crops_is_normalized
+7 failed, 1250 passed, 11 skipped, 3 warnings in 181.31s (0:03:01)

@@ -1,0 +1,8 @@
+usage: prepare.py [-h] [--group GROUP] [--stages STAGES]
+
+只做取帧与人工辅助定位（阶段 1,2,3,4,6；跳过 VLM 打标与排名）
+
+options:
+  -h, --help       show this help message and exit
+  --group GROUP    work/ 下的组目录名（如 文化4-4.28）；省略则用当前 config
+  --stages STAGES  要跑的阶段，逗号分隔，只能是 1,2,3,4,5 的子集

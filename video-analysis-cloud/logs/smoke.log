@@ -1,0 +1,8 @@
+WARNING ⚠️ user config directory '/workspace/video-analysis-cloud/yolo-config/Ultralytics' is not writable, using '/tmp/Ultralytics'. Set YOLO_CONFIG_DIR to override.
+Creating new Ultralytics Settings v0.0.8 file ✅ 
+View Ultralytics Settings with 'yolo settings' or at '/tmp/Ultralytics/settings.json'
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/usage/settings.
+Torch: 2.8.0+cpu CUDA available: False
+   推理设备 cpu（全精度），共 3 帧 / 1 个窗口
+   [1/1] order=1 entry 3 帧
+{"schedule_segments": 17, "presenters": 42, "sample_media": "ultralytics packaged bus.jpg, repeated for one second", "video_seconds": 1.0, "decoded_frames": 3, "person_detections": 12, "evidence_size": [800, 800], "device": "cpu", "weight_sha256": "9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92"}

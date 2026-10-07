@@ -1,0 +1,16 @@
+usage: python -m pipeline.registry [-h] [--work WORK] [--sheet SHEET]
+                                   [--out OUT] [--dry-run] [--check]
+                                   [--preview] [--preview-out PREVIEW_OUT]
+
+产出座位登记表 seat_registry_<SHEET>.json
+
+options:
+  -h, --help            show this help message and exit
+  --work WORK           组的 work 目录（默认取 config.WORK）
+  --sheet SHEET         组名（默认取 config.SHEET）
+  --out OUT             输出路径（默认 <work>/seat_registry_<SHEET>.json）
+  --dry-run             只打印统计，不写盘
+  --check               只判定登记表是不是产自当前这一份人工标注并给退出码（0=最新，1=陈旧），不读检测、不写盘
+  --preview             另外产出人工核对页 vlm_preview_<SHEET>.html（显示 VLM 实际会看到的那张证据图）
+  --preview-out PREVIEW_OUT
+                        核对页输出路径（默认 <work>/vlm_preview_<SHEET>.html）

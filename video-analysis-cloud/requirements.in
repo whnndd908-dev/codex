@@ -1,0 +1,17 @@
+# Local cloud setup dependencies; original source archive has no manifest.
+numpy
+pandas
+openpyxl
+Pillow
+opencv-python
+scipy
+scikit-learn
+pytest
+anthropic
+httpx
+huggingface-hub
+transformers>=4.40,<5
+ultralytics>=8.4
+lap>=0.5.12
+torch==2.8.0+cu126
+torchvision==0.23.0+cu126

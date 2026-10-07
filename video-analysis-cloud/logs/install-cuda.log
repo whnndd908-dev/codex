@@ -1,0 +1,54 @@
+Using Python 3.12.14 environment at: video-analysis/.venv
+Resolved 87 packages in 750ms
+Downloading nvidia-cublas-cu12 (374.9MiB)
+Downloading nvidia-cudnn-cu12 (674.0MiB)
+Downloading nvidia-curand-cu12 (53.7MiB)
+Downloading nvidia-cusparse-cu12 (206.5MiB)
+Downloading nvidia-cuda-nvrtc-cu12 (22.6MiB)
+Downloading nvidia-cusolver-cu12 (150.9MiB)
+Downloading nvidia-nccl-cu12 (307.4MiB)
+Downloading nvidia-cufft-cu12 (190.9MiB)
+Downloading nvidia-nvjitlink-cu12 (18.8MiB)
+Downloading torchvision (7.0MiB)
+Downloading nvidia-cusparselt-cu12 (273.9MiB)
+Downloading triton (148.4MiB)
+Downloading nvidia-cuda-cupti-cu12 (8.5MiB)
+Downloading nvidia-cufile-cu12 (1.1MiB)
+Downloading torch (783.7MiB)
+ Downloaded nvidia-cufile-cu12
+ Downloaded torchvision
+ Downloaded nvidia-cuda-cupti-cu12
+ Downloaded nvidia-nvjitlink-cu12
+ Downloaded nvidia-cuda-nvrtc-cu12
+ Downloaded nvidia-curand-cu12
+ Downloaded nvidia-cusolver-cu12
+ Downloaded triton
+ Downloaded nvidia-cufft-cu12
+ Downloaded nvidia-cusparse-cu12
+ Downloaded torch
+ Downloaded nvidia-cusparselt-cu12
+ Downloaded nvidia-nccl-cu12
+ Downloaded nvidia-cublas-cu12
+ Downloaded nvidia-cudnn-cu12
+Prepared 17 packages in 18.98s
+Uninstalled 2 packages in 109ms
+Installed 17 packages in 105ms
+ + nvidia-cublas-cu12==12.6.4.1
+ + nvidia-cuda-cupti-cu12==12.6.80
+ + nvidia-cuda-nvrtc-cu12==12.6.77
+ + nvidia-cuda-runtime-cu12==12.6.77
+ + nvidia-cudnn-cu12==9.10.2.21
+ + nvidia-cufft-cu12==11.3.0.4
+ + nvidia-cufile-cu12==1.11.1.6
+ + nvidia-curand-cu12==10.3.7.77
+ + nvidia-cusolver-cu12==11.7.1.2
+ + nvidia-cusparse-cu12==12.5.4.2
+ + nvidia-cusparselt-cu12==0.7.1
+ + nvidia-nccl-cu12==2.27.3
+ + nvidia-nvjitlink-cu12==12.6.85
+ + nvidia-nvtx-cu12==12.6.77
+ - torch==2.8.0+cpu
+ + torch==2.8.0+cu126
+ - torchvision==0.23.0+cpu
+ + torchvision==0.23.0+cu126
+ + triton==3.4.0

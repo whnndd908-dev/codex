@@ -1,0 +1,26 @@
+{
+  "repo": "mattmdjaga/segformer_b2_clothes",
+  "revision": "584abc1e1d260e23c0fc627c5217a09b2b461046",
+  "files": [
+    {
+      "rfilename": "config.json",
+      "blobId": "7bf506a3672235c681b35e124ef9333ca6f5e8b2",
+      "size": 1727
+    },
+    {
+      "rfilename": "model.safetensors",
+      "blobId": "9313aacc3c6e9d4e23b754ecee24f4397d13cfb0",
+      "size": 109493236,
+      "lfs": {
+        "sha256": "8f86fd90c567afd4370b3cc3a7e81ed767a632b2832a738331af660acc0c4c68",
+        "size": 109493236,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "preprocessor_config.json",
+      "blobId": "d230721d08201d422c6e3d11994083b55e7e66ca",
+      "size": 271
+    }
+  ]
+}

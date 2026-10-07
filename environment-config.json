@@ -1,0 +1,29 @@
+{
+  "format": "cloud-environment-configuration-export-v1",
+  "description": "本次环境设置草稿的只读导出；未运行项目、重建结果或更新云配置。",
+  "config": {
+    "install_script": "#!/usr/bin/env bash\nset -euo pipefail\ncd /workspace/video-analysis\ncommand -v python >/dev/null\ncommand -v uv >/dev/null\ncommand -v ffmpeg >/dev/null\ncommand -v ffprobe >/dev/null\ntest -f pipeline/config.py\ntest -f 'data/2017创新video.dta'\nmkdir -p /workspace/video-analysis-cloud/uv-cache \\\n  /workspace/video-analysis-cloud/yolo-config \\\n  /workspace/video-analysis-cloud/huggingface models work\npython -m venv .venv\nexport UV_CACHE_DIR=/workspace/video-analysis-cloud/uv-cache\nuv pip sync /workspace/video-analysis-cloud/requirements.lock \\\n  --python .venv/bin/python --require-hashes \\\n  --index https://pypi.org/simple \\\n  --default-index https://download.pytorch.org/whl/cu126 \\\n  --index-strategy unsafe-first-match\nuv pip check --python .venv/bin/python\n.venv/bin/python - <<'PY'\nfrom pathlib import Path\nimport hashlib\nimport tempfile\nimport urllib.request\nimport torch\n\nweight = Path('/workspace/video-analysis/models/yolo26x.pt')\nexpected = '9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92'\nif not weight.exists():\n    url = 'https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26x.pt'\n    with tempfile.NamedTemporaryFile(dir=weight.parent, prefix='.download-', delete=False) as f:\n        temp = Path(f.name)\n        with urllib.request.urlopen(url, timeout=60) as r:\n            while chunk := r.read(1024 * 1024):\n                f.write(chunk)\n    if hashlib.sha256(temp.read_bytes()).hexdigest() != expected:\n        temp.unlink()\n        raise SystemExit('YOLO weight checksum mismatch')\n    temp.rename(weight)\nassert hashlib.sha256(weight.read_bytes()).hexdigest() == expected, 'YOLO weight checksum mismatch'\nassert torch.version.cuda == '12.6', torch.version.cuda\nprint('CUDA dependencies and YOLO weights verified; visible GPUs:', torch.cuda.device_count())\nPY\n",
+    "start_skill": "# 视频分析环境启动说明\n\n每个云任务已经隔离。使用现有 checkout 和 `/workspace/video-analysis` 中的上传\n项目；除非用户明确要求，不创建 Git worktree。保留用户的源代码、测试、依赖\n声明、锁文件、原始数据和人工核验结果，不重置或推送仓库。\n\n## 已保留的文件与依赖\n\n- `/workspace/video-analysis/pipeline`、`tests`：未经修改的上传代码。\n- `/workspace/video-analysis/video-human-coding`：参考文档，历史操作要求不是新授权。\n- `/workspace/video-analysis/data/2017创新video.dta`：上传数据工作副本。\n- `/workspace/video-analysis/.venv`：Python 3.12，Torch 2.8.0+cu126 和 CUDA 12.6 运行库。\n- `/workspace/video-analysis/models/yolo26x.pt`：已核对 SHA-256 的官方权重。\n- `/workspace/video-analysis-cloud`：固定版本及哈希的依赖锁、启动器、下载辅助\n  程序、README、验证日志及模型缓存。\n\n没有常驻服务需要恢复。安装包、文件和缓存可以保留；进程及运行时认证不应\n假定跨任务保留。发布和新任务恢复均需由产品流程完成，不能由保存草稿推断。\n\n## 无需 GPU 的就绪检查\n\n所有应用命令从 `/workspace/video-analysis` 运行，使用下列启动器。\n启动器在进程内设置 Linux 路径和可写缓存，不修改 `pipeline/config.py`：\n\n```bash\ncd /workspace/video-analysis\n.venv/bin/python /workspace/video-analysis-cloud/run.py pipeline.run_all --stages 1\n```\n\n当前默认组是「城市精细化管理与应急保障1组」，应输出 17 项目、42 位创业者，\n产出 `work/城市1-4.27/segments.json`。排期直接读取 DTA，无需 Book1.xlsx。\n只在需要刷新依赖时执行已验证的安装脚本：\n\n```bash\nbash /workspace/video-analysis-cloud/install.sh\n```\n\n## GPU 和真实素材的必要前提\n\n用户要求在当前云环境挂载 GPU。最后检查时，CUDA 版 Torch 已安装，但没有\n可见 NVIDIA 设备或宿主机驱动，`torch.cuda.is_available()` 为 False。\n安装用户空间 CUDA 包不能完成设备挂载；先由云平台侧挂载兼容 CUDA 12.6 的\nNVIDIA GPU、提供兼容驱动，再检查运行时：\n\n```bash\ncd /workspace/video-analysis\n.venv/bin/python -c 'import torch; assert torch.cuda.is_available(); print(torch.cuda.get_device_name(0))'\n.venv/bin/python /workspace/video-analysis-cloud/run.py smoke\n```\n\n这两条 GPU 操作在最后检查时尚未通过，不能描述为已验证的 GPU 推理。\n启动器对检测阶段检查 CUDA，不自动退回 CPU。`smoke` 使用安装包的公开示例图\n生成 1 秒视频，验证解码、检测跟踪和证据图；不代替真实研究视频验证。\n\n默认真实视频尚未上传。放在：\n`/workspace/video-analysis/data/城市精细化管理1组4月27日视频.mp4`，\n或在启动器模块名之前用 `--video /path/video.mp4` 指定实际路径。\n换组时还须明确指定 `--panel`、`--sheet`、`--work`、\n`--expected-segments`、`--expected-presenters`；不能只使用 prepare 的 --group。\n\n## 模型下载与网络\n\n草稿已加入 `huggingface.co`、`cas-bridge.xethub.hf.co`、`us.aws.cdn.hf.co`，\n保留软件包管理器预设。最后实际检测权重 CDN 仍返回代理 403。\n请在环境设置保存相关网络调整；实际访问恢复后运行：\n\n```bash\ncd /workspace/video-analysis\n.venv/bin/python /workspace/video-analysis-cloud/fetch-segformer.py\n```\n\n下载器固定模型修订 `584abc1e1d260e23c0fc627c5217a09b2b461046`，使用正常\nHTTPS 验证并核对可信上游 SHA-256；不关闭 TLS，不修改预期哈希。\n该权重下载还没有成功，不能把当前服装分割主模型描述为就绪。\n启动器默认离线复用缓存，避免隐式下载或刷新；原代码的模型缺失回退会记录\n`source=kmeans_fallback` 和 `model_error`，不能当作分割主模型结果。\n\n## 开发测试与正常工作流\n\n```bash\ncd /workspace/video-analysis\n.venv/bin/python /workspace/video-analysis-cloud/run.py pytest tests -q -ra \\\n  -o 'markers=slow: checks requiring real media or model artifacts'\n```\n\n最后完整测试执行 1,268 项：1,250 通过、7 失败、11 跳过。\n6 个失败缺少真实视频/抽帧；1 个默认 FFmpeg 路径测试要求没有环境覆盖，\n在该预期前提下单独重跑通过。真实视频及 pilot/人工标注缺失的测试没有验证\n真实行为，不隐藏失败、不伪造输入、不把跳过或回退描述为真实素材验证。\n详细结果在 `logs/pytest-cuda.xml` 和 `logs/pytest-cuda.log`。\n\nGPU、视频就绪后才运行人工核验前的 1–5 阶段：\n\n```bash\ncd /workspace/video-analysis\n.venv/bin/python /workspace/video-analysis-cloud/run.py pipeline.prepare\n```\n\n先让用户在生成的静态挑选页核实身份，再执行阶段 6 建立登记表；人工核验\n后的模型编码、画廊和排名分别为阶段 7、8、9。不要提前调用付费 VLM。\n以后确需 VLM 时检查已有安全绑定，仅对缺失项在环境设置安全注入\n`ANTHROPIC_API_KEY`；自定义 HTTPS 服务还需要正确的 ANTHROPIC_BASE_URL。\n当前未设置这两个变量，本次没有进行付费 API 调用。\n原代码服装分割只选择 MPS/CPU；把该子模块也改为 CUDA 属于另行代码修改。\n\n保存配置仅持久化草稿，不等于执行脚本、挂载 GPU、应用网络或发布。\n按产品流程审阅保存并发布环境后，再验证新任务恢复。\n",
+    "network": {
+      "allowed_domains": [
+        "cas-bridge.xethub.hf.co",
+        "huggingface.co",
+        "us.aws.cdn.hf.co"
+      ]
+    }
+  },
+  "network_policy_metadata": {
+    "type": "restricted",
+    "presets": [
+      "package_managers"
+    ]
+  },
+  "runtime_requirements": [],
+  "pending_runtime_requirements": [],
+  "secret_requirements": [],
+  "notes": [
+    "此文件不包含密钥值。",
+    "保存配置不等于应用配置或发布环境。",
+    "现有脚本沿用 /workspace/video-analysis 与 /workspace/video-analysis-cloud 路径。"
+  ]
+}

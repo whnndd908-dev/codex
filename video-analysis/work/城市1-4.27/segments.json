@@ -1,0 +1,480 @@
+{
+  "video": "城市精细化管理1组4月27日视频.mp4",
+  "sheet": "城市精细化管理1组4月27日视频",
+  "panel": "城市精细化管理与应急保障1组",
+  "segments": [
+    {
+      "order": 1,
+      "company": "北京一零科技有限公司",
+      "start": 0.0,
+      "end": 1110.0,
+      "presenter_num": 2,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 1,
+          "speaks_pre": 1,
+          "speaks_qa": 0
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 1,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 2,
+      "company": "通号工程局集团北京研究设计实验中心有限公司",
+      "start": 1178.0,
+      "end": 2551.98,
+      "presenter_num": 3,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        },
+        {
+          "seat_index": 3,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        }
+      ],
+      "dta_order": 2,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 3,
+      "company": "北京通途永久科技有限公司",
+      "start": 2595.98,
+      "end": 3645.16,
+      "presenter_num": 3,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 3,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        }
+      ],
+      "dta_order": 3,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 4,
+      "company": "北京阿纽山医药科技有限公司",
+      "start": 3705.16,
+      "end": 5047.16,
+      "presenter_num": 2,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 1,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 4,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 5,
+      "company": "北京迪为双兴通讯技术有限公司",
+      "start": 5095.16,
+      "end": 6252.92,
+      "presenter_num": 3,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 3,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 5,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 6,
+      "company": "北京广联纵横科技有限公司",
+      "start": 6310.92,
+      "end": 6895.56,
+      "presenter_num": 3,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        },
+        {
+          "seat_index": 3,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        }
+      ],
+      "dta_order": 6,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 7,
+      "company": "北京中航安通科技有限公司",
+      "start": 7026.56,
+      "end": 7969.56,
+      "presenter_num": 2,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        }
+      ],
+      "dta_order": 7,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 8,
+      "company": "常名（北京）资产管理有限公司",
+      "start": 8095.61,
+      "end": 9331.34,
+      "presenter_num": 2,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 8,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 9,
+      "company": "北京天恒长鹰科技股份有限公司",
+      "start": 9385.34,
+      "end": 10323.28,
+      "presenter_num": 2,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        }
+      ],
+      "dta_order": 9,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 10,
+      "company": "北京易泊时代科技有限公司",
+      "start": 10379.28,
+      "end": 11714.89,
+      "presenter_num": 4,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        },
+        {
+          "seat_index": 3,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        },
+        {
+          "seat_index": 4,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        }
+      ],
+      "dta_order": 10,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 11,
+      "company": "飞驰镁物（北京）信息服务有限公司",
+      "start": 11869.89,
+      "end": 13109.19,
+      "presenter_num": 2,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 11,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 12,
+      "company": "共友时代（北京）科技股份有限公司",
+      "start": 13189.19,
+      "end": 14605.79,
+      "presenter_num": 3,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 3,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        }
+      ],
+      "dta_order": 12,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 13,
+      "company": "华辰天泽（北京）气象信息科技有限公司",
+      "start": 14668.79,
+      "end": 15747.79,
+      "presenter_num": 3,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        },
+        {
+          "seat_index": 3,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 13,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 14,
+      "company": "北京旋极伏羲大数据技术有限公司",
+      "start": 15803.79,
+      "end": 16448.99,
+      "presenter_num": 3,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 1,
+          "speaks_pre": 1,
+          "speaks_qa": 0
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        },
+        {
+          "seat_index": 3,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 14,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 15,
+      "company": "北京中昌天盛科技有限公司",
+      "start": 16608.99,
+      "end": 17734.99,
+      "presenter_num": 2,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 0,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 1,
+          "speaks_pre": 0,
+          "speaks_qa": 0
+        }
+      ],
+      "dta_order": 15,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 16,
+      "company": "信智慧通科技（北京）有限公司",
+      "start": 17778.99,
+      "end": 18506.82,
+      "presenter_num": 2,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 1,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        },
+        {
+          "seat_index": 2,
+          "gender_female": 0,
+          "speaks_pre": 0,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 16,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    },
+    {
+      "order": 17,
+      "company": "北京博恒创想科技有限公司",
+      "start": 18557.82,
+      "end": 19247.82,
+      "presenter_num": 1,
+      "presenters": [
+        {
+          "seat_index": 1,
+          "gender_female": 1,
+          "speaks_pre": 1,
+          "speaks_qa": 1
+        }
+      ],
+      "dta_order": 17,
+      "innermost_expert": 0,
+      "entry_time": null,
+      "exit_time": null
+    }
+  ]
+}

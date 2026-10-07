@@ -1,0 +1,52 @@
+# Git metadata and Python environments/caches
+.git/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.cache/
+
+# Package/model download caches and transient files
+uv-cache/
+huggingface/
+*.part
+*.incomplete
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Local credentials and workstation files
+.env
+.env.*
+!.env.example
+!.env.sample
+.npmrc
+.pypirc
+.DS_Store
+__MACOSX/
+Thumbs.db
+desktop.ini
+
+# Model weights are obtained from their documented upstream sources.
+# Keep metadata and checksums such as yolo26x.pt.sha256 tracked.
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+
+# Long source recordings and local distribution archives
+/video-analysis/data/**/*.mp4
+/video-analysis/data/**/*.mov
+/video-analysis/data/**/*.mkv
+/video-analysis/data/**/*.avi
+*.zip
+*.zip.sha256
+*.tar.gz
+/exports/

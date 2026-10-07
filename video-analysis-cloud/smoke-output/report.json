@@ -1,0 +1,14 @@
+{
+  "schedule_segments": 17,
+  "presenters": 42,
+  "sample_media": "ultralytics packaged bus.jpg, repeated for one second",
+  "video_seconds": 1.0,
+  "decoded_frames": 3,
+  "person_detections": 12,
+  "evidence_size": [
+    800,
+    800
+  ],
+  "device": "cpu",
+  "weight_sha256": "9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92"
+}

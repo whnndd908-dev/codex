@@ -1,0 +1,35 @@
+...................................................................
+=============================== warnings summary ===============================
+tests/test_detect.py:83
+  /workspace/video-analysis/tests/test_detect.py:83: PytestUnknownMarkWarning: Unknown pytest.mark.slow - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.slow
+
+tests/test_detect.py:99
+  /workspace/video-analysis/tests/test_detect.py:99: PytestUnknownMarkWarning: Unknown pytest.mark.slow - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.slow
+
+pipeline/entryreview.py:2642
+  /workspace/video-analysis/pipeline/entryreview.py:2642: SyntaxWarning: invalid escape sequence '\?'
+    if (todo.length) parts.push('缺：' + todo.map(t=>t.replace(/ (男|女|\?)$/,
+
+tests/test_parsing.py:77
+  /workspace/video-analysis/tests/test_parsing.py:77: PytestUnknownMarkWarning: Unknown pytest.mark.slow - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.slow
+
+tests/test_staff.py:143
+  /workspace/video-analysis/tests/test_staff.py:143: PytestUnknownMarkWarning: Unknown pytest.mark.slow - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.slow
+
+tests/test_assemble.py::test_measure_person_color_caps_frame_count
+  /workspace/video-analysis/.venv/lib/python3.12/site-packages/transformers/image_processing_base.py:417: UserWarning: The following named arguments are not valid for `SegformerImageProcessor.__init__` and were ignored: 'reduce_labels'
+    image_processor = cls(**image_processor_dict)
+
+tests/test_assemble.py::test_measure_person_color_caps_frame_count
+  /workspace/video-analysis/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py:1727: DeprecationWarning: hf_xet.download_files() is deprecated. Use XetSession().new_file_download_group().start_download_file() instead.
+    xet_get(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/workspace/video-analysis/.venv/lib/python3.12/site-packages/tqdm/std.py:1144: KeyboardInterrupt
+(to show a full traceback on KeyboardInterrupt use --full-trace)
+67 passed, 7 warnings in 99.68s (0:01:39)
